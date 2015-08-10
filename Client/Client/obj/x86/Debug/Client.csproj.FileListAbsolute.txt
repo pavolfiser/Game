@@ -1,0 +1,4 @@
+C:\Users\palo\Documents\GitHub\Game\Client\Client\bin\Debug\Client.exe
+C:\Users\palo\Documents\GitHub\Game\Client\Client\bin\Debug\Client.pdb
+C:\Users\palo\Documents\GitHub\Game\Client\Client\obj\x86\Debug\Client.exe
+C:\Users\palo\Documents\GitHub\Game\Client\Client\obj\x86\Debug\Client.pdb
