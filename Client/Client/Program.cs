@@ -17,15 +17,18 @@ namespace Client
             Client.Connect("127.0.0.1", 8888);
           
             NetworkStream networkStream;
-            byte[] Databyte = new byte[1024];
-            byte[] Messagebyte = new byte[1024];
+            byte[] Databyte = new byte[10024];
+            byte[] Messagebyte = new byte[10024];
             Console.WriteLine("Connected to Server");
-
+            int i = 0;
             while (true)
             {
-                string message = Console.ReadLine();
+              //  Console.Write("To Sertver: ");
+                string message = i.ToString();// Console.ReadLine();
+                i++;
+           
                 networkStream = Client.GetStream();
-                Console.WriteLine(message);
+               
                 Messagebyte = ASCIIEncoding.ASCII.GetBytes(message+"$");
 
                 networkStream.Write(Messagebyte, 0, Messagebyte.Length);
@@ -34,13 +37,14 @@ namespace Client
 
 
 
-                Databyte = new byte[1024];
+                Databyte = new byte[10024];
 
                 networkStream.Read(Databyte, 0, Databyte.Length);
 
                 string mess = ASCIIEncoding.ASCII.GetString(Databyte);
                 mess = mess.Substring(0, mess.IndexOf("$"));
-                Console.WriteLine(mess);
+                Console.Title = mess;
+             //   Console.WriteLine("From Server:"+mess);
 
             }
 

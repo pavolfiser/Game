@@ -13,7 +13,7 @@ namespace Server
     {
         static void Main(string[] args)
         {
-            byte[] bytesFrom = new byte[1024];
+            byte[] bytesFrom = new byte[10024];
 
 
             TcpListener serverSocket = new TcpListener(8888);
@@ -29,7 +29,7 @@ namespace Server
             {
 
                 clientSocket = serverSocket.AcceptTcpClient();
-                bytesFrom = new byte[1024];
+                bytesFrom = new byte[10024];
                 string datas = "";
 
 
@@ -41,11 +41,12 @@ namespace Server
                             clientSocket.Client.RemoteEndPoint.ToString());
                  
                     networkStream.Read(bytesFrom, 0, (int)clientSocket.ReceiveBufferSize);
+                   
               
                     datas = System.Text.Encoding.ASCII.GetString(bytesFrom);
 
                     datas = datas.Substring(0, datas.IndexOf("$"));
-                    Console.WriteLine(datas);
+                   
 
 
                     ClientHandle client = new ClientHandle(clientSocket);

@@ -40,17 +40,18 @@ namespace Server
 
         void Communication()
         {
-
+            while(true)
+            {
             message = Recive(ClientSocket);
-            Console.WriteLine(message);
+           // Console.WriteLine(message);
             Send(ClientSocket,message);
-
+            }
         }
 
         private string Recive(TcpClient clientSocket)
         {
           
-            byte[] bytesFrom = new byte[1024];
+            byte[] bytesFrom = new byte[10024];
 
             NetworkStream networkStream = clientSocket.GetStream();
 
